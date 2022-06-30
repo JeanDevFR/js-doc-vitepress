@@ -28,7 +28,7 @@ Si l'opération asynchrone se termine avec succès, l'exécuteur appellera la fo
 
 En cas d'erreur, l'exécuteur appellera la fonction `reject()` pour changer l'état de la promesse de `en attente` à `rejetée` avec la raison de l'erreur.
 
-Une fois qu'une promesse atteint l'état `réalisée` ou `rejetée`, elle reste dans cet état et ne peut pas passer à un autre état.
+Une fois qu'une promesse atteint l'état `réalisée` ou `rejetée`, elle est **résolue**. La promesse reste dans cet état et ne peut pas passer à un autre état.
 
 En d'autres termes, une promesse ne peut pas passer de l'état `réalisée` à `rejetée` et vice versa. De plus, elle ne peut pas revenir de l'état `réalisée` ou `rejetée` à l'état `en attente`.
 
