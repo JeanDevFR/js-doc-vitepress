@@ -4,10 +4,10 @@ Pour créer une promesse, vous utilisez le constructeur `Promise()` :
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  // contain an operation
+  // opération asynchrone
   // ...
 
-  // return the state
+  // changement de l'état
   if (success) {
     resolve(value)
   } else {
