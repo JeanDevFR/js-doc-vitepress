@@ -17,6 +17,10 @@ export default {
             text: 'Consommer une promesse',
             link: '/promises/consume-a-promise',
           },
+          {
+            text: 'Enchaînement',
+            link: '/promises/chaining.md',
+          },
         ],
       },
     ],
