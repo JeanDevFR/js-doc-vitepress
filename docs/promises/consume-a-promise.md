@@ -83,6 +83,7 @@ function getUsers() {
 function onFulfilled(users) {
   console.log(users)
 }
+
 function onRejected(error) {
   console.log(error)
 }
@@ -99,7 +100,7 @@ Si `success` vaut `true`, la promesse dans la fonction `getUsers()` est `réalis
 
 Deuxièmement, définissez les fonctions `onFulfilled` et `onRejected`.
 
-Troisièmement, récupérez la promesse de la fonction `getUsers()` et appelez la méthode `then()` avec les fonctions `onFulfilled` et `onRejected`.
+Troisièmement, récupérez la promesse retournée par la fonction `getUsers()` et appelez la méthode `then()` avec les fonctions `onFulfilled` et `onRejected`.
 
 Ce qui suit montre comment utiliser les fonctions fléchées comme arguments de la méthode `then()` :
 
@@ -123,7 +124,7 @@ En interne, la méthode `catch()` invoque la méthode `then(undefined, onRejecte
 
 ## La méthode `finally()`
 
-Parfois, vous souhaiterez exécuter le même morceau de code, que la promesse soit `réalisée` ou `rejetée`. Par exemple:
+Parfois, vous souhaiterez exécuter du code, que la promesse soit `réalisée` ou `rejetée`. Par exemple:
 
 ```js
 const render = () => {

@@ -90,4 +90,117 @@ En pratique, vous utiliserez rarement plusieurs gestionnaires pour une promesse.
 
 ## Renvoyer une promesse
 
-Lorsque vous renvoyez une valeur dans la méthode `then()`, la méthode `then()` renvoie une nouvelle promesse immédiatement résolue avec la valeur.
+Lorsque vous renvoyez une valeur dans la méthode `then()`, la méthode renvoie une nouvelle promesse immédiatement résolue avec la valeur.
+
+De plus, vous pouvez renvoyer une nouvelle promesse dans la méthode `then()`, comme ceci :
+
+```js
+let p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(10)
+  }, 2000)
+})
+
+p.then((result) => {
+  console.log(result)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(result * 2)
+    }, 2000)
+  })
+})
+  .then((result) => {
+    console.log(result)
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(result * 3)
+      }, 2000)
+    })
+  })
+  .then((result) => console.log(result))
+```
+
+Ce qui suit modifie l'exemple ci-dessus :
+
+```js
+function generateNumber(num) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(num)
+    }, 2000)
+  })
+}
+
+generateNumber(10)
+  .then((result) => {
+    console.log(result)
+    return generateNumber(result * 2)
+  })
+  .then((result) => {
+    console.log(result)
+    return generateNumber(result * 3)
+  })
+  .then((result) => console.log(result))
+```
+
+### Syntaxe de chaînage des promesses
+
+Parfois, vous avez plusieurs tâches asynchrones que vous souhaiterez exécuter en séquence. De plus, vous devez transmettre le résultat de l'étape précédente à la suivante. Dans ce cas, vous pouvez utiliser la syntaxe suivante :
+
+```js
+step1()
+  .then((result) => step2(result))
+  .then((result) => step3(result))
+```
+
+Si vous avez besoin de passer le résultat de la tâche précédente à la suivante sans passer le résultat, vous pouvez utiliser cette syntaxe :
+
+```js
+step1().then(step2).then(step3)
+```
+
+Supposons que vous souhaitiez effectuer les opérations asynchrones suivantes dans l'ordre :
+
+- Tout d'abord, récupérer l'utilisateur à partir de la base de données.
+- Deuxièmement, obtenir les services de l'utilisateur sélectionné.
+- Troisièmement, calculer le coût du service à partir des services de l'utilisateur.
+
+Les fonctions suivantes illustrent les trois opérations asynchrones :
+
+```js
+function getUser(userId) {
+  return new Promise((resolve, reject) => {
+    console.log("Récupération de l'utilisateur depuis la base de données")
+    setTimeout(() => {
+      resolve({
+        userId: userId,
+        username: 'admin',
+      })
+    }, 1000)
+  })
+}
+
+function getServices(user) {
+  return new Promise((resolve, reject) => {
+    console.log(`Récupération des services de ${user.username} depuis une API`)
+    setTimeout(() => {
+      resolve(['Email', 'VPN', 'CDN'])
+    }, 3000)
+  })
+}
+
+function getServiceCost(services) {
+  return new Promise((resolve, reject) => {
+    console.log(`Calcul du coût des services ${services}.`)
+    setTimeout(() => {
+      resolve(services.length * 100)
+    }, 2000)
+  })
+}
+```
+
+Ce qui suit utilise les promesses :
+
+```js
+getUser(100).then(getServices).then(getServiceCost).then(console.log)
+```
