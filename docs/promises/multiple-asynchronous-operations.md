@@ -2,7 +2,7 @@
 
 ## La méthode `Promise.all()`
 
-La méthode statique `Promise.all()` attend un itérable de promesses.
+La méthode statique `Promise.all()` attend une liste de promesses.
 
 La méthode `Promise.all()` renvoie une seule promesse qui se résout lorsque toutes les promesses ont été résolues. La promesse renvoyée se résout en un tableau des résultats des promesses.
 
@@ -30,9 +30,9 @@ const promise2 = new Promise((resolve, reject) => {
 Promise.all([promise1, promise2]).then(console.log)
 ```
 
-Lorsque toutes les promesses ont été résolues, les valeurs de ces promesses sont transmises à la fonction de rappel de la méthode `then()` sous forme de tableau.
+Lorsque toutes les promesses ont été réalisées, les valeurs de ces promesses sont transmises à la fonction de rappel de la méthode `then()` sous forme de tableau.
 
-### Une des promesses es rejetée
+### Une des promesses est rejetée
 
 La méthode `Promise.all()` renvoie une promesse qui est `rejetée` si l'une des promesses est rejetée.
 
@@ -51,3 +51,9 @@ const promise2 = new Promise((resolve, reject) => {
 
 Promise.all([promise1, promise2]).then(console.log).catch(console.log)
 ```
+
+## La méthode `Promise.race()`
+
+La méthode statique `Promise.race()` accepte une liste de promesses et renvoie une nouvelle promesse `réalisée` ou `rejetée` dès qu'il y a une promesse qui est `réalisée` ou `rejetée`, avec la valeur ou la raison de l'erreur de cette promesse.
+
+Le nom de la méthode `Promise.race()` implique que toutes les promesses s'affrontent avec une seule gagnante, `réalisée` ou `rejetée`.
