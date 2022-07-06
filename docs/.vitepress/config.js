@@ -21,6 +21,10 @@ export default {
             text: 'Enchaînement',
             link: '/promises/chaining.md',
           },
+          {
+            text: 'Plusieurs opérations asynchrones',
+            link: '/promises/multiple-asynchronous-operations',
+          },
         ],
       },
     ],
