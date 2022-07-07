@@ -25,6 +25,10 @@ export default {
             text: 'Plusieurs opérations asynchrones',
             link: '/promises/multiple-asynchronous-operations',
           },
+          {
+            text: 'En bref',
+            link: '/promises/summary',
+          },
         ],
       },
     ],
