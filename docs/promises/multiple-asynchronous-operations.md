@@ -56,8 +56,6 @@ Promise.all([promise1, promise2]).then(console.log).catch(console.log)
 
 La méthode statique `Promise.race()` accepte une liste de promesses et renvoie une nouvelle promesse `réalisée` ou `rejetée` dès qu'il y a une promesse qui est `réalisée` ou `rejetée`, avec la valeur ou la raison de l'erreur de cette promesse.
 
-Le nom de la méthode `Promise.race()` implique que toutes les promesses s'affrontent avec une seule gagnante, `réalisée` ou `rejetée`.
-
 ```js
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -72,4 +70,30 @@ const promise2 = new Promise((resolve, reject) => {
 })
 
 Promise.race([promise1, promise2]).then(console.log).catch(console.log)
+```
+
+## La méthode `Promise.any()`
+
+La méthode `Promise.any()` accepte une liste de promesses.
+
+Si l'une des promesses est réalisée, `Promise.any()` renvoie une nouvelle promesse qui se résout en une valeur qui est le résultat de la première promesse réalisée, même si certaines promesses sont rejetées.
+
+Si toutes les promesses sont rejetées ou si la liste est vide, `Promise.any()` renvoie une promesse rejetée avec une erreur `AggregateError` contenant toutes les raisons du rejet.
+
+En pratique, vous utiliserez `Promise.any()` pour renvoyer la première promesse réalisée. Une fois qu'une promesse est réalisée, la méthode `Promise.any()` n'attend pas que les autres promesses soient terminées.
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('error')
+  }, 500)
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('bar')
+  }, 5000)
+})
+
+Promise.any([promise1, promise2]).then(console.log)
 ```

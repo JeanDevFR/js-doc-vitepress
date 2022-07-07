@@ -7,3 +7,4 @@
 - La méthode `Promise.all()` accepte une liste de promesses et renvoie une nouvelle promesse qui se résout en un tableau de résultats des promesses si toutes les promesses sont réalisées ; ou rejetée si l'une des promesses est rejetée avec l'erreur de la première promesse rejetée
 - Utilisez la méthode `Promise.all()` pour regrouper les résultats de plusieurs opérations asynchrones.
 - La méthode `Promise.race()` accepte une liste de promesses et renvoie une nouvelle promesse qui est réalisée ou rejetée dès que l'une des promesses est réalisée ou rejetée, avec la valeur ou l'erreur de cette promesse.
+- La méthode `Promise.any()` accepte une liste de promesses et renvoie une promesse dès qu'une promesse est réalisée, même si les autres promesses sont rejetées.
