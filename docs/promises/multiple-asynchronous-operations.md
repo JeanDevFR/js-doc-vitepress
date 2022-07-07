@@ -57,3 +57,19 @@ Promise.all([promise1, promise2]).then(console.log).catch(console.log)
 La méthode statique `Promise.race()` accepte une liste de promesses et renvoie une nouvelle promesse `réalisée` ou `rejetée` dès qu'il y a une promesse qui est `réalisée` ou `rejetée`, avec la valeur ou la raison de l'erreur de cette promesse.
 
 Le nom de la méthode `Promise.race()` implique que toutes les promesses s'affrontent avec une seule gagnante, `réalisée` ou `rejetée`.
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('error')
+  }, 2000)
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('bar')
+  }, 1000)
+})
+
+Promise.race([promise1, promise2]).then(console.log).catch(console.log)
+```

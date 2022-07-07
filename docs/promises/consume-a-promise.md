@@ -2,7 +2,7 @@
 
 ## La méthode `then()`
 
-Pour obtenir la valeur d'une promesse lorsqu'elle est `réalisée`, vous appelez la méthode `then()`.
+Pour obtenir la valeur d'une promesse lorsqu'elle est `réalisée`, appelez la méthode `then()`.
 
 ```js
 promise.then(onFulfilled, onRejected)
@@ -162,10 +162,3 @@ getUsers()
     render()
   })
 ```
-
-## En bref
-
-- Une promesse est un objet qui encapsule le résultat d'une opération asynchrone.
-- Une promesse commence à l'état `en attente` et se termine à l'état `réalisée` ou à l'état `rejetée`.
-- Utilisez la méthode `then()` pour planifier l'exécution d'une fonction de rappel lorsque la promesse est `réalisée` et la méthode `catch()` pour planifier l'appel d'une fonction de rappel lorsque la promesse est `rejetée`.
-- Placez le code que vous souhaitez exécuter dans la méthode `finally()`, que la promesse soit `réalisée` ou `rejetée`.
