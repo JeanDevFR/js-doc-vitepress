@@ -2,11 +2,11 @@
 
 Par définition, une promesse est un objet qui encapsule le résultat d'une opération asynchrone.
 
-Une promesse a un état parmi les suivants :
+Une promesse possède un état parmi les suivants :
 
-- En attente (pending)
-- Réalisée (fulfilled)
-- Rejetée (rejected)
+- En attente
+- Réalisée
+- Rejetée
 
 Au début, l'état d'une promesse est `en attente`, indiquant que l'opération asynchrone est en cours. Selon le résultat de l'opération asynchrone l'état passe à `réalisée` ou `rejetée`.
 

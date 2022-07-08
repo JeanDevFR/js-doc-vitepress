@@ -97,3 +97,38 @@ const promise2 = new Promise((resolve, reject) => {
 
 Promise.any([promise1, promise2]).then(console.log)
 ```
+
+## La méthode Promise.allSettled()
+
+ES2020 a introduit la méthode `Promise.allSettled()` qui accepte une liste de promesses et renvoie une nouvelle promesse qui se résout une fois que toutes les promesses sont résolues, qu'elles soient réalisées ou rejetées.
+
+La méthode `Promise.allSettled()` renvoie une promesse qui se résout en un tableau d'objets décrivant le résultat de chaque promesse de la liste.
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('La première promesse est réalisée')
+    resolve('Yeah!')
+  }, 1000)
+})
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log('La deuxième promesse est rejetée')
+    reject('failed')
+  }, 2000)
+})
+
+Promise.allSettled([promise1, promise2]).then(console.log)
+```
+
+Le résultat :
+
+```bash
+La première promesse est réalisée
+La deuxième promesse est rejetée
+[
+  { status: 'fulfilled', value: 'Yeah!' },
+  { status: 'rejected', reason: 'failed' }
+]
+```
