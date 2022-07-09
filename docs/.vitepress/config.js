@@ -3,7 +3,18 @@ export default {
   themeConfig: {
     sidebar: [
       {
+        text: 'Les classes',
+        collapsible: true,
+        items: [],
+      },
+      {
+        text: 'Les modules',
+        collapsible: true,
+        items: [],
+      },
+      {
         text: 'Promesses',
+        collapsible: true,
         items: [
           {
             text: 'Introduction',
@@ -24,6 +35,14 @@ export default {
           {
             text: 'Plusieurs opérations asynchrones',
             link: '/promises/multiple-asynchronous-operations',
+          },
+          {
+            text: 'Gestion des erreurs',
+            link: '/promises/errors-handling',
+          },
+          {
+            text: 'async/await',
+            link: '/promises/async-await',
           },
           {
             text: 'En bref',

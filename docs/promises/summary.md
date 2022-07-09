@@ -9,3 +9,5 @@
 - La méthode `Promise.race()` accepte une liste de promesses et renvoie une nouvelle promesse qui est réalisée ou rejetée dès que l'une des promesses est réalisée ou rejetée, avec la valeur ou l'erreur de cette promesse.
 - La méthode `Promise.any()` accepte une liste de promesses et renvoie une promesse dès qu'une promesse est réalisée, même si les autres promesses sont rejetées.
 - La méthode `Promise.allSettled()` accepte une liste de promesses et renvoie une nouvelle promesse qui se résout lorsque chaque promesse est résolue avec un tableau d'objets qui décrit le résultat de chaque promesse de la liste.
+- À l'intérieur de la promesse, la méthode `catch()` interceptera l'erreur causée par l'instruction `throw` et `reject()`.
+- Si une erreur se produit et que vous n'avez pas la méthode `catch()`, le moteur JavaScript émet une erreur d'exécution et arrête le programme.
