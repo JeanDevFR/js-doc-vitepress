@@ -1,6 +1,6 @@
 # async / await
 
-ES2017 a introduit les mots-clés `async/await` qui s'appuient sur les promesses, vous permettant d'écrire du code asynchrone qui ressemble plus à du code synchrone et plus lisible. Techniquement parlant, `async/await` est du sucre syntaxique pour les promesses.
+ES2017 a introduit les mots-clés `async/await` qui s'appuient sur les promesses, vous permettant d'écrire du code asynchrone qui ressemble plus à du code synchrone. Techniquement parlant, `async/await` est du sucre syntaxique pour les promesses.
 
 Si une fonction renvoie une promesse, vous pouvez placer le mot clé `await` devant l'appel de la fonction, comme ceci :
 
@@ -8,7 +8,9 @@ Si une fonction renvoie une promesse, vous pouvez placer le mot clé `await` dev
 const result = await foo()
 ```
 
-Le mot-clé `await` attendra que la promesse renvoyée par la fonction foo() soit résolue. Le mot-clé `await` ne peut être utilisé qu'à l'intérieur des fonctions asynchrones.
+Le mot-clé `await` attendra que la promesse renvoyée par la fonction `foo()` soit résolue.
+
+Le mot-clé `await` ne peut être utilisé qu'à l'intérieur des fonctions asynchrones.
 
 Ce qui suit définit une fonction asynchrone qui appelle les trois opérations asynchrones dans l'ordre :
 
@@ -81,7 +83,7 @@ class Greeter {
 
 ## Le mot-clé `await`
 
-Utilisez le mot-clé `await` pour attendre qu'une promesse soit résolue dans un état réalisée ou rejetées. Vous ne pouvez utiliser le mot-clé `await` qu'à l'intérieur d'une fonction asynchrone :
+Utilisez le mot-clé `await` pour attendre qu'une promesse soit résolue dans un état réalisée ou rejetée. Vous ne pouvez utiliser le mot-clé `await` qu'à l'intérieur d'une fonction asynchrone :
 
 ```js
 async function display() {
@@ -90,7 +92,7 @@ async function display() {
 }
 ```
 
-Dans cet exemple, le mot-clé await indique d'attendre que la fonction `sayHi()` se termine avant d'afficher le message.
+Dans cet exemple, le mot-clé `await` indique d'attendre que la fonction `sayHi()` se termine avant d'afficher le message.
 
 Notez que si vous utilisez le mot-clé `await` en dehors d'une fonction asynchrone, vous obtiendrez une erreur.
 
